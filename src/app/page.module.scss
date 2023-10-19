@@ -1,11 +1,33 @@
-@import './variables.module.scss';
+@import '../utils//variables.module.scss';
 
 .wrapper{
   background-color: $color-bg-primary;
-  height: 100vh;
 }
 
 .container{
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.sidebar{
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 500px 1fr;
+}
+
+.section{
+  min-height: 100vh;
+  padding: 1rem;
+  
+}
+
+.sections{
+  > :nth-child(2n-1){
+    background-color: $color-bg-secondary;
+  }
 }

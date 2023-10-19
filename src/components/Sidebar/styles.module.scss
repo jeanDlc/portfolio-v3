@@ -1,0 +1,23 @@
+@import '../../utils/variables.module.scss';
+
+.container{
+    padding-top: clamp(50px, 10vh, 140px);
+    padding-right: 65px;
+    padding-left: 65px;
+    h1{
+        margin-bottom: 25px;
+    }
+}
+
+.description{
+    color: $color-secondary;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul{
+        display: flex;
+    }
+}

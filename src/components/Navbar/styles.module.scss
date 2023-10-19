@@ -1,0 +1,43 @@
+@import '../../utils/variables.module.scss';
+
+.active{
+    background: $gradient;
+    background-clip: text;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: #6978D1; //default color
+    
+}
+
+.nav{
+    a{
+        font-weight: 400;
+        display: inline-block;
+        padding: 8px;
+    }
+}
+
+.nav-container{
+    display: flex;
+    * > {
+        flex: 1 1 0;
+    }
+    gap: 30px;
+    .bar{
+        border-radius: 40px;
+        span{
+            border-radius: 50px;
+            background-color: $color-primary;
+            height: 38px;
+            width: 6px;
+            display: inline-block;
+        }
+        
+        padding: 8px;
+        border: 1px solid darken($color-primary, 70%);
+        
+    }
+}
+
