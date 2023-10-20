@@ -1,18 +1,16 @@
-import LogoIcon from "@/components/icons/logoIcon";
 import GmailIcon from "@/components/icons/gmail";
 import GithubIcon from "@/components/icons/github";
 import LinkedinIcon from "@/components/icons/linkedin";
+import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
 
 import styles from "./styles.module.scss";
 import ui from "@/utils/ui.module.scss";
-import Navbar from "../Navbar";
 
 const Sidebar = () => {
   return (
     <header className={styles.container}>
-      <h1>
-        <LogoIcon />
-      </h1>
+      <Logo />
       <p className={styles.description}>
         I am a frontend developer Since beginning my journey as developer , I
         have done many web projects, and I proud of my progress

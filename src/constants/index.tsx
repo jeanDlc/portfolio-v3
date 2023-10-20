@@ -4,3 +4,10 @@ export enum PageSection {
   EXPERIENCE = "experience",
   PROJECTS = "projects",
 }
+
+export const orderedSections = [
+  PageSection.HOME,
+  PageSection.ABOUT,
+  PageSection.EXPERIENCE,
+  PageSection.PROJECTS,
+] as const;

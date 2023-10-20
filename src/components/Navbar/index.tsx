@@ -1,8 +1,37 @@
 "use client";
-import { PageSection } from "@/constants";
-import { useEffect, useRef } from "react";
+import { PageSection, orderedSections } from "@/constants";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./styles.module.scss";
+
+/**
+ * @example
+ * // Usage example:
+ * // Renders a VerticalBar component with 4 total bars and the 1st bar as current.
+ * <VerticalBar n={4} current={1} />
+ */
+const VerticalBar = ({ current, n }: { n: number; current: number }) => {
+  const spanRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (spanRef.current) {
+      spanRef.current.style.height = `calc(100%/${n})`;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (spanRef.current) {
+      spanRef.current.style.transform = `translateY(${(current - 1) * 100}%)`;
+    }
+  }, [current]);
+
+  return (
+    <div className={styles.bar}>
+      <span ref={spanRef}></span>
+    </div>
+  );
+};
 
 export default function Navbar() {
   //anchor refs
@@ -11,12 +40,14 @@ export default function Navbar() {
   const experienceRef = useRef<HTMLAnchorElement>(null);
   const projectsRef = useRef<HTMLAnchorElement>(null);
 
+  const [currentSection, setCurrentSection] = useState(PageSection.HOME);
+
   const refById = {
     [PageSection.HOME]: homeRef,
     [PageSection.ABOUT]: aboutRef,
     [PageSection.EXPERIENCE]: experienceRef,
     [PageSection.PROJECTS]: projectsRef,
-  };
+  } as const;
 
   function changeNav(
     entries: IntersectionObserverEntry[],
@@ -32,6 +63,8 @@ export default function Navbar() {
 
         const id = entry.target.getAttribute("id") as PageSection;
 
+        setCurrentSection(id);
+
         refById[id].current?.classList.add(styles.active);
       }
     });
@@ -40,21 +73,21 @@ export default function Navbar() {
   useEffect(() => {
     const observer = new IntersectionObserver(changeNav, { threshold: 0.5 });
 
-    const sections = [
+    const sectionsToObserve = [
       PageSection.HOME,
       PageSection.ABOUT,
       PageSection.EXPERIENCE,
       PageSection.PROJECTS,
     ].map((key) => document.getElementById(key));
 
-    sections.forEach((section) => {
+    sectionsToObserve.forEach((section) => {
       if (section) {
         observer.observe(section);
       }
     });
 
     return () => {
-      sections.forEach((section) => {
+      sectionsToObserve.forEach((section) => {
         if (section) {
           observer.unobserve(section);
         }
@@ -62,11 +95,16 @@ export default function Navbar() {
     };
   }, []);
 
+  const selectedSectionPosition = useMemo(() => {
+    return orderedSections.indexOf(currentSection) + 1;
+  }, [currentSection]);
+
   return (
     <div className={styles["nav-container"]}>
-      <div className={styles.bar}>
-        <span></span>
-      </div>
+      <VerticalBar
+        current={selectedSectionPosition}
+        n={orderedSections.length}
+      />
       <nav className={styles.nav}>
         <div>
           <a ref={homeRef} href={`#${PageSection.HOME}`}>
