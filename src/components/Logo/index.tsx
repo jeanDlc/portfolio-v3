@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 export default function Logo() {
   return (
     <h1>
-      <span className={styles.hidden}>Jean Pierre de la Cruz Portfolio</span>
+      <span className="hidden">Jean Pierre de la Cruz Portfolio</span>
       <LogoIcon />
     </h1>
   );

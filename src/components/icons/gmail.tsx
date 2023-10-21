@@ -6,6 +6,8 @@ export default function GmailIcon() {
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable={false}
     >
       <path
         fillRule="evenodd"
