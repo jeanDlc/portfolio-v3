@@ -1,0 +1,5 @@
+@mixin hide-on-desktop{
+    @media (width>=768px){
+        display: none;
+    } 
+}

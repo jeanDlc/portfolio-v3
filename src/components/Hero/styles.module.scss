@@ -1,0 +1,116 @@
+@import '../../utils/variables.module.scss';
+@import '../../utils/mixins.scss';
+
+
+
+.container{
+    container: hero / inline-size;
+}
+
+@mixin onSmallContainer{
+    @container hero (max-width:481px){
+        @content;
+    }
+}
+
+.hero{
+    margin: 0 auto;
+   
+    @media (width>=768px){
+        padding-top:20vh;
+        max-width: 500px;
+    }
+    color: $color-primary;
+    .logo{
+        display: none;
+        margin: 20px 0px;
+        @media(width<768px){
+            display: block;
+        }
+    }
+    h2{
+        font-weight: 500;
+        font-size: 48px;
+        margin-bottom: 30px;
+
+         @include onSmallContainer{
+            font-size:30px;
+            
+        }
+       
+    }
+
+    .desc{
+        font-size: 15px;
+        color: $color-secondary;
+        margin-bottom: 26px;
+        @include hide-on-desktop;
+        @include onSmallContainer{
+            font-size:14px;
+            
+        }
+    
+    }
+
+    ul{
+        list-style: none;
+    }
+    header ul {
+        display: flex;
+        align-items: center;
+        li, li p{
+            @include onSmallContainer{
+                font-size:14px;
+                
+            }
+        }
+        $gap: 6px;
+        gap: $gap;
+        .location{
+            display: flex;
+            align-items: center;
+            gap: $gap;
+        }
+    }
+
+    
+}
+.stack{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 33px;
+    @include onSmallContainer(){
+        gap: 12px;
+    }
+    li{
+        padding: 1px;
+        background: $gradient;
+        border-radius: 20px;
+        
+        span{
+            font-size: 15px;
+            border-radius: 20px;
+            display: inline-block;
+            padding: 9px 20px;
+            background-color: $color-bg-secondary;
+            @include onSmallContainer(){
+            font-size: 13px;
+            }
+
+        }
+    }
+}
+
+
+.contact-list-wrapper{
+    @include hide-on-desktop;
+}
+
+.button-container{
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    @include hide-on-desktop;
+}
+

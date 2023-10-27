@@ -7,11 +7,45 @@
     h1{
         margin-bottom: 25px;
     }
+    h2{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .info{
+        display: none;
+    }
+    .aditional{
+        list-style: none;
+        display: flex;
+        align-items: center;
+        $gap: 6px;
+        gap: $gap;
+        .location{
+            display: flex;
+            align-items: center;
+            gap: $gap;
+        }
+        li{
+            font-size: 14px;
+        }
+    }
+    @media (width<768px){
+        background-color: $color-bg-secondary;
+        padding-left: 20px;
+        padding-right: 20px;
+        .info{
+            display: block;
+        }
+    }
 }
+
 
 .description{
     color: $color-secondary;
     margin-bottom: 15px;
+    @media (width<768px){
+        font-size: 14px;
+    }
 }
 
 .actions {
@@ -19,4 +53,13 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
+    // TODO change media query for container queries
+    @media (width<768px){
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+        & button{
+            margin-left: auto;
+        }
+    }
 }
