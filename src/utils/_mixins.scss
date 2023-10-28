@@ -3,3 +3,9 @@
         display: none;
     } 
 }
+
+@mixin onSmallContainer(){
+    @container (max-width:481px){
+        @content;
+    }
+}

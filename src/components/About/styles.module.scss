@@ -1,0 +1,25 @@
+
+
+@import '../../utils/mixins';
+
+.about{
+    container: about / inline-size;
+    margin: 0 auto;
+   padding-top: 40px;
+    @media (width>=768px){
+        padding-top:20vh;
+        max-width: 500px;
+    }
+    .text{
+        font-size: 20px;
+        @include onSmallContainer(){
+            font-size: 18px;
+        }
+    }
+    .avatar-wrapper{
+        margin-bottom: 30px;
+        @media (width<768px){
+            margin-bottom: 25px;
+        }
+    }
+}

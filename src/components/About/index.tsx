@@ -1,8 +1,14 @@
+import styles from "./styles.module.scss";
+import avatarSvgPath from "@/assets/avatar.svg";
+import Image from "next/image";
+
 const About = () => {
   return (
-    <section>
-      <h2>About</h2>
-      <p>
+    <article className={styles.about}>
+      <div className={styles["avatar-wrapper"]}>
+        <Image src={avatarSvgPath} alt="Avatar" loading="lazy" />
+      </div>
+      <p className={styles.text}>
         Hi, my name is Jean Pierre de la Cruz, I am a frontend developer Since
         beginning my journey as developer , I have ve done many web projects,
         and I proud of my progress I love the web technologies and the constant
@@ -11,7 +17,7 @@ const About = () => {
         looking for a frontend developer, please contact me, we can create
         amazing things together!
       </p>
-    </section>
+    </article>
   );
 };
 

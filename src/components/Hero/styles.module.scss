@@ -7,12 +7,6 @@
     container: hero / inline-size;
 }
 
-@mixin onSmallContainer{
-    @container hero (max-width:481px){
-        @content;
-    }
-}
-
 .hero{
     margin: 0 auto;
    

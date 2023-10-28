@@ -2,7 +2,7 @@ import Sidebar from "@/components/Sidebar";
 import Hero from "@/components/Hero";
 
 import styles from "./page.module.scss";
-import About from "@/components/about";
+import About from "@/components/About";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
 import { PageSection } from "@/constants";
