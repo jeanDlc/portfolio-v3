@@ -1,0 +1,67 @@
+@import '../../utils/variables.module.scss';
+@import '../../utils/mixins';
+
+.container{
+    
+    container: wrapper / inline-size;
+}
+
+.card{
+    backdrop-filter: blur(20px);
+    background-color: rgba($color: #1f2937, $alpha: 0.4);
+    border-radius: 12px;
+    padding: 26px 30px;
+    border: 1px solid rgba($color: white, $alpha: 0.1);
+}
+
+.heading{
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 12px;
+    @include text-gradient;
+    @include onSmallContainer(){
+        font-size: 14px;
+    }
+}
+
+.role{
+    font-size: 20px;
+    color: $color-primary;
+    font-weight: 400;
+    margin-bottom: 13px;
+    @include onSmallContainer(){
+        font-size: 14px;
+    }
+}
+.description{
+    font-size: 18px;
+    color: $color-primary-2;
+    margin-bottom: 30px;
+    @include onSmallContainer(){
+        font-size: 14px;
+    }
+}
+
+.stack{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    // @example: li - li - li
+    li{
+        color: $color-stack;
+        position: relative;
+        font-size: 14px;
+        &::before{
+            content: '\00a0 -';
+            
+        }
+        &:first-of-type{
+            &::before{
+                content: '';
+            }
+        }
+        @include onSmallContainer(){
+            font-size: 12px;
+        }
+    }
+}

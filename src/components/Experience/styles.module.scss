@@ -1,0 +1,143 @@
+@import '../../utils/mixins';
+
+
+@keyframes move{
+    from{
+        transform: translateX(0);
+
+    }
+    to{
+        transform: translateX(100%);
+    }
+}
+
+.experience{
+    container: experience / inline-size;
+    max-width: 800px;
+    margin: 0 auto;
+    .heading{
+        font-size: 54px;
+        margin-bottom: 50px;
+        margin-top:22px ;
+        @include onSmallContainer(){
+            font-size: 40px;
+        }
+        position: relative;
+        .ornament{
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            animation: 3s infinite alternate move;
+            z-index: -1;
+        }
+    }
+}
+
+
+//distance between the card and the date
+
+$separation-between-cards:54px;
+
+@mixin onVerticalLayout{
+    @container(max-width: 600px){
+        @content;
+    }
+}
+
+@mixin basePseudo{
+    z-index: 1;
+    position: absolute;
+    content: '';
+}
+
+.job-list{
+    list-style: none;
+    @include onVerticalLayout(){
+        padding-left: 37px;
+    }
+    $sidebar-width:180px;
+    
+    .job-item{
+        $vertical-gap: 50px;
+
+        margin-bottom: $separation-between-cards;
+    
+        display: grid;
+        grid-template-columns: $sidebar-width 1fr;
+        gap: $vertical-gap;
+    
+        @include onVerticalLayout(){
+            grid-template-columns: 1fr;
+            gap:13px;
+        }
+
+        position: relative;
+        
+        $left-separation:10px;
+        $circle-size:19px;
+
+        //timeline circle
+        &::after{
+            @include basePseudo();
+            height: $circle-size;
+            width: $circle-size;
+            top: 0;
+            left: calc($sidebar-width + $vertical-gap/2 - $circle-size/2);
+            background: url('../../assets/circle-timeline.svg');
+    
+            border-radius: 50%;
+    
+            @include onVerticalLayout(){
+                left: initial;
+                right: calc(100% + $left-separation);
+            }
+        }
+    
+        //timeline line
+        &::before{
+            @include basePseudo();
+            height: calc(100% + $separation-between-cards);
+            $line-width:1px;
+            width: $line-width;
+            background-color: #ccc;
+            top: 0;
+            left: calc($sidebar-width + $vertical-gap/2 - $line-width/2);
+            @include onVerticalLayout(){
+                left: initial;
+                right: calc(100% + $left-separation + $circle-size/2);
+            }
+        }
+
+        &:last-of-type{
+            //remove timeline line for the last element
+            &::before{
+                content: none;
+            }
+        }
+        
+    }
+}
+
+.icon-wrapper{
+    margin-top: 100px;
+    @include onSmallContainer(){
+        margin-top: 80px;
+    }
+    background: $gradient; 
+    display: inline-block;
+    line-height: 0;
+    padding: 11px;
+    border-radius: 10px;
+}
+
+
+
+.dates{
+    color: $color-secondary;
+    font-weight: 400;
+    @include onSmallContainer(){
+        font-size: 14px;
+    }
+    display: inline-block;
+    position: relative; 
+}

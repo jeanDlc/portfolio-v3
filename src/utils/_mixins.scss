@@ -1,3 +1,5 @@
+@import './variables.module.scss';
+
 @mixin hide-on-desktop{
     @media (width>=768px){
         display: none;
@@ -8,4 +10,15 @@
     @container (max-width:481px){
         @content;
     }
+}
+
+@mixin text-gradient{
+    display: inline-block;
+    background: $gradient;
+    background-clip: text;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: #6978D1; 
 }

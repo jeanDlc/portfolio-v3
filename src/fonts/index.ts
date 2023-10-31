@@ -11,4 +11,4 @@ export const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
 });
 
-export const sora = Sora({ weight: "200", subsets: ["latin"] });
+export const sora = Sora({ weight: ["200", "300", "400"], subsets: ["latin"] });
