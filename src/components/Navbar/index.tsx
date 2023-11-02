@@ -6,8 +6,8 @@ import styles from "./styles.module.scss";
 
 /**
  * @example
- * // Usage example:
- * // Renders a VerticalBar component with 4 total bars and the 1st bar as current.
+ * Usage example:
+ * Renders a VerticalBar component with 4 total bars and the 1st bar as current.
  * <VerticalBar n={4} current={1} />
  */
 const VerticalBar = ({ current, n }: { n: number; current: number }) => {
@@ -54,7 +54,7 @@ export default function Navbar() {
     _: IntersectionObserver,
   ) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
         Object.values(refById).forEach((anchorRef) => {
           if (anchorRef.current) {
             anchorRef.current.classList.remove(styles.active);
@@ -71,7 +71,7 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(changeNav, { threshold: 0.5 });
+    const observer = new IntersectionObserver(changeNav, { threshold: 0.2 });
 
     const sectionsToObserve = [
       PageSection.HOME,
@@ -87,11 +87,7 @@ export default function Navbar() {
     });
 
     return () => {
-      sectionsToObserve.forEach((section) => {
-        if (section) {
-          observer.unobserve(section);
-        }
-      });
+      observer.disconnect();
     };
   }, []);
 
