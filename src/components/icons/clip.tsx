@@ -25,9 +25,9 @@ export default function ClipIcon() {
           y2="9.03456"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#13ADC7" />
-          <stop offset="0.666667" stop-color="#6978D1" />
-          <stop offset="1" stop-color="#945DD6" />
+          <stop stopColor="#13ADC7" />
+          <stop offset="0.666667" stopColor="#6978D1" />
+          <stop offset="1" stopColor="#945DD6" />
         </linearGradient>
       </defs>
     </svg>
