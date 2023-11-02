@@ -22,3 +22,9 @@
 
     color: #6978D1; 
 }
+
+@mixin onMobile{
+    @media (width<576px){
+        @content;
+    }
+}

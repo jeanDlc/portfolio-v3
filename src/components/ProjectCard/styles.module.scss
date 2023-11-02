@@ -1,0 +1,104 @@
+@import '../../utils/variables.module.scss';
+@import '../../utils/mixins';
+
+
+.container{
+    container: article-container / inline-size;
+}
+
+.cover{
+    margin-bottom: 26px;
+    img{
+        max-width: 100%;
+    }
+}
+
+.title{
+    font-weight: 300;
+    margin-bottom: 32px;
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    @include onMobile(){
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    &::after{
+        $line-h:1px;
+        $line-w:48px;
+        position: absolute;
+        content: '';
+        width: 48px;
+        height: 1px;
+        right: - calc($line-w + 20px);
+        top: calc(50% - $line-h); //center vertically
+        background: $gradient;
+    }
+}
+
+.description{
+    color: $color-secondary;
+    font-size: 16px;
+    margin-bottom: 16px;
+    @include onMobile(){
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}
+
+.stack{
+    display: flex;
+    list-style: none;
+    margin-bottom: 40px;
+
+    @include onMobile(){
+        margin-bottom: 18px;
+    }
+
+    > li {
+        font-size: 14px;
+        color: $color-stack;
+        &::before{
+            content: '\00a0 -';
+        }
+
+        &:first-of-type{
+            &::before{
+                content: none;
+            }
+        }
+        @include onMobile(){
+            font-size: 12px;
+        }
+    }
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.demo-button{
+    border-radius: 30px;    
+    background: $gradient;
+    padding: 2px;
+    display: inline-block;
+    span{
+        padding: 15px 21px;
+        font-size: 16px;
+        display: inline-block;
+        border-radius: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: $color-bg-primary;
+    }
+    
+    @include onMobile(){
+        flex: 1;
+    }
+}
+
+

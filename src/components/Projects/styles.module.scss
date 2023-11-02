@@ -1,0 +1,44 @@
+@import '../../utils/variables.module.scss';
+@import '../../utils/mixins';
+
+.container{
+    container: projects-container / inline-size;
+}
+
+.title{
+    font-size: 54px;
+    margin-bottom: 65px;
+    margin-top: 100px;
+    span{
+        font-size: inherit;
+        @include text-gradient;
+    }
+    @include onSmallContainer(){
+        font-size: 40px;
+        margin: 60px 0px 46px 0px;
+    }
+}
+
+.list{
+    list-style: none;
+    column-gap: 34px;
+    row-gap: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px, 1fr));
+    margin-bottom: 60px;
+}
+
+.more{
+    background-color: $color-secondary-button;
+    color: white;
+    font-weight: normal;
+    border-radius: 12px;
+    font-size: 14px;
+    padding: 9px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    width: min(159px, 100%);
+}

@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import styles from "./page.module.scss";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
-import Projects from "@/components/projects";
+import Projects from "@/components/Projects";
 import { PageSection } from "@/constants";
 import MobileNavbar from "@/components/Navbar";
 

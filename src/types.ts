@@ -8,3 +8,15 @@ export interface Job {
   stack: string[];
   id: number;
 }
+
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  image: any;
+  demoUrl: string;
+  slug: string;
+  stack: string[];
+  repoUrl: string;
+  company?: string;
+}
