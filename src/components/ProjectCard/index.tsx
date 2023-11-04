@@ -7,8 +7,7 @@ import styles from "./styles.module.scss";
 import { baiJamjuree } from "@/fonts";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const { demoUrl, description, image, name, repoUrl, slug, stack, company } =
-    project;
+  const { demoUrl, description, name, repoUrl, stack } = project;
 
   return (
     <article className={styles.container}>

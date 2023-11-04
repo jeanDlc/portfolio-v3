@@ -1,5 +1,4 @@
 import LogoIcon from "@/components/icons/logoIcon";
-import styles from "./styles.module.scss";
 
 export default function Logo() {
   return (

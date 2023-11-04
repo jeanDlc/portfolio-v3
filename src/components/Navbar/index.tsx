@@ -49,10 +49,7 @@ export default function Navbar() {
     [PageSection.PROJECTS]: projectsRef,
   } as const;
 
-  function changeNav(
-    entries: IntersectionObserverEntry[],
-    _: IntersectionObserver,
-  ) {
+  function changeNav(entries: IntersectionObserverEntry[]) {
     entries.forEach((entry) => {
       if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
         Object.values(refById).forEach((anchorRef) => {
@@ -89,6 +86,7 @@ export default function Navbar() {
     return () => {
       observer.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectedSectionPosition = useMemo(() => {
