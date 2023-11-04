@@ -1,4 +1,5 @@
-@import '../../utils/variables.module.scss';
+@import '../../sass/colors';
+@import '../../sass/mixins';
 
 .container{
     padding-top: clamp(50px, 10vh, 140px);
@@ -62,4 +63,8 @@
             margin-left: auto;
         }
     }
+}
+
+.download{
+    @include button-primary;
 }

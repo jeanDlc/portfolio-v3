@@ -1,4 +1,4 @@
-@import './variables.module.scss';
+@import './colors';
 
 @mixin hide-on-desktop{
     @media (width>=768px){
@@ -28,3 +28,14 @@
         @content;
     }
 }
+
+
+@mixin button-primary{
+    background: $gradient;
+    color: $color-title;
+    text-transform: capitalize;
+    font-weight: 400;
+    border-radius: 47px;
+    font-size: 16px;
+    padding: 12px 16px;
+  }

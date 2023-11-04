@@ -6,7 +6,6 @@ import LocationIcon from "@/components/icons/location";
 import PeruFlagIcon from "@/components/icons/peruFlag";
 
 import styles from "./styles.module.scss";
-import ui from "@/utils/ui.module.scss";
 
 const Sidebar = () => {
   return (
@@ -30,7 +29,7 @@ const Sidebar = () => {
       </p>
       <section className={styles.actions}>
         <ContactList />
-        <button className={ui["button-primary"]}>Download CV</button>
+        <button className={styles.download}>Download CV</button>
       </section>
 
       <Navbar />

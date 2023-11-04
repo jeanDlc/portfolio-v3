@@ -2,7 +2,6 @@ import PeruFlagIcon from "@/components/icons/peruFlag";
 import LocationIcon from "@/components/icons/location";
 import Logo from "@/components/Logo";
 import { baiJamjuree, sora } from "@/fonts";
-import ui from "@/utils/ui.module.scss";
 
 import styles from "./styles.module.scss";
 import ContactList from "@/components/contactList";
@@ -53,7 +52,7 @@ const Hero = () => {
         </section>
       </div>
       <div className={styles["button-container"]}>
-        <button className={ui["button-primary"]}>Download CV</button>
+        <button>Download CV</button>
       </div>
     </>
   );
