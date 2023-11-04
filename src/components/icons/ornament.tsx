@@ -30,9 +30,9 @@ export default function OrnamentIcon({ vertical }: { vertical?: boolean }) {
             y2="63"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#13ADC7" />
-            <stop offset="0.666667" stop-color="#6978D1" />
-            <stop offset="1" stop-color="#945DD6" />
+            <stop stopColor="#13ADC7" />
+            <stop offset="0.666667" stopColor="#6978D1" />
+            <stop offset="1" stopColor="#945DD6" />
           </linearGradient>
         </defs>
       </svg>
@@ -64,9 +64,9 @@ export default function OrnamentIcon({ vertical }: { vertical?: boolean }) {
           y2="15"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#13ADC7" />
-          <stop offset="0.666667" stop-color="#6978D1" />
-          <stop offset="1" stop-color="#945DD6" />
+          <stop stopColor="#13ADC7" />
+          <stop offset="0.666667" stopColor="#6978D1" />
+          <stop offset="1" stopColor="#945DD6" />
         </linearGradient>
       </defs>
     </svg>
