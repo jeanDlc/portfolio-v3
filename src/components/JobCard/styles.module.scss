@@ -19,7 +19,7 @@
     font-size: 25px;
     margin-bottom: 12px;
     @include text-gradient;
-    @include onSmallContainer(){
+    @include onMobile(){
         font-size: 14px;
     }
 }
@@ -29,7 +29,7 @@
     color: $color-primary;
     font-weight: 400;
     margin-bottom: 13px;
-    @include onSmallContainer(){
+    @include onMobile(){
         font-size: 14px;
     }
 }
@@ -37,7 +37,7 @@
     font-size: 18px;
     color: $color-primary-2;
     margin-bottom: 30px;
-    @include onSmallContainer(){
+    @include onMobile(){
         font-size: 14px;
     }
 }
@@ -60,7 +60,7 @@
                 content: '';
             }
         }
-        @include onSmallContainer(){
+        @include onMobile(){
             font-size: 12px;
         }
     }
