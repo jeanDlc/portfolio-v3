@@ -51,7 +51,7 @@ export default function Navbar() {
 
   function changeNav(entries: IntersectionObserverEntry[]) {
     entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
         Object.values(refById).forEach((anchorRef) => {
           if (anchorRef.current) {
             anchorRef.current.classList.remove(styles.active);
@@ -68,7 +68,7 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(changeNav, { threshold: 0.2 });
+    const observer = new IntersectionObserver(changeNav, { threshold: 0.5 });
 
     const sectionsToObserve = [
       PageSection.HOME,
