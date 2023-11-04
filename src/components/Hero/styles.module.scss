@@ -23,6 +23,8 @@
         }
     }
     h2{
+        position: relative;
+        display: inline-block;
         font-weight: 500;
         font-size: 48px;
         margin-bottom: 30px;
@@ -30,6 +32,18 @@
          @include onSmallContainer{
             font-size:30px;
             
+        }
+
+        &::before{
+            @include basePseudo();
+            $size:16px;
+            width: $size;
+            height: $size;
+            background: $gradient;
+            border-radius: 50%;
+            $gap:10px;
+            right: - calc($size + $gap);
+            top: calc(50% - $size/2);
         }
        
     }

@@ -15,6 +15,12 @@
         @include onSmallContainer(){
             font-size: 18px;
         }
+        span{
+            @include text-gradient;
+            font-weight: bold;
+            font-size: inherit;
+        }
+
     }
     .avatar-wrapper{
         margin-bottom: 30px;

@@ -54,6 +54,11 @@ const Experience = () => {
           </li>
         ))}
       </ul>
+      <div className={styles["ornament-end"]}>
+        <div>
+          <OrnamentIcon vertical />
+        </div>
+      </div>
     </section>
   );
 };

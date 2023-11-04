@@ -12,6 +12,7 @@
 }
 
 .experience{
+    position: relative;
     container: experience / inline-size;
     max-width: 800px;
     margin: 0 auto;
@@ -42,12 +43,6 @@ $separation-between-cards:54px;
     @container(max-width: 600px){
         @content;
     }
-}
-
-@mixin basePseudo{
-    z-index: 1;
-    position: absolute;
-    content: '';
 }
 
 .job-list{
@@ -140,4 +135,14 @@ $separation-between-cards:54px;
     }
     display: inline-block;
     position: relative; 
+}
+
+.ornament-end{
+    $pill-h:126px;
+    $external-padding: 18px;
+    $separation:10px;
+    @include basePseudo();
+    z-index: 0;
+    bottom: - calc($pill-h/2 + $external-padding + $separation);
+    right: 0;
 }
