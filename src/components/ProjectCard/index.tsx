@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 import { baiJamjuree } from "@/fonts";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const { demoUrl, description, name, repoUrl, stack } = project;
+  const { description, name, stack, demo, repository } = project;
 
   return (
     <article className={styles.container}>
@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </ul>
       <footer className={styles.links}>
         <a
-          href={demoUrl}
+          href={demo}
           rel="noreferrer nofollow"
           target="_blank"
           className={styles["demo-button"]}
@@ -34,7 +34,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </span>
         </a>
         <a
-          href={repoUrl}
+          href={repository}
           rel="noreferrer nofollow"
           target="_blank"
           title={`Visit repository of ${name}`}

@@ -4,19 +4,19 @@ export interface Job {
   company: string;
   url: string;
   from: string;
-  to: string;
+  to?: string;
   stack: string[];
-  id: number;
+  id: string;
 }
 
 export interface Project {
-  id: string;
   name: string;
   description: string;
-  image: any;
-  demoUrl: string;
+  image: Record<string, string>;
   slug: string;
   stack: string[];
-  repoUrl: string;
+  demo: string;
+  repository: string;
+  id: string;
   company?: string;
 }
