@@ -7,12 +7,12 @@ import styles from "./styles.module.scss";
 import { baiJamjuree } from "@/fonts";
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const { description, name, stack, demo, repository } = project;
+  const { description, name, stack, demo, repository, image } = project;
 
   return (
     <article className={styles.container}>
       <header className={styles.cover}>
-        <Image src={srcMock} alt={`Preview of project ${name}`} />
+        <Image src={image.url} fill alt={`Preview of project ${name}`} />
       </header>
       <h3 className={`${baiJamjuree.className} ${styles.title}`}> {name} </h3>
       <p className={styles.description}> {description} </p>

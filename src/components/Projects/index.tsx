@@ -6,20 +6,41 @@ import arrowDownSvg from "@/assets/arrow-down.svg";
 
 import type { Project } from "@/types";
 import Image from "next/image";
+import { performRequest } from "@/lib/cms";
 
-const Projects = () => {
-  const projects: Project[] = [1, 2, 3, 4].map((id) => ({
-    company: "",
-    name: "Code Play",
-    description:
-      "Code Play is an online HTML, CSS and JavaScript editor. You can code in real time and share the link with anybody",
-    stack: ["React", "Bootstrap", "Styled components"],
-    demoUrl: "",
-    image: "",
-    repoUrl: "",
-    slug: "",
-    id: String(id),
-  }));
+const PROJECTS_QUERY = `
+	query {
+		allProjects (first : 5 ) {
+			id
+			name
+			image{
+				url
+				blurUpThumb
+				alt
+			}
+			demo
+			repository
+			stack
+			company
+			description
+			slug
+		}
+	}
+
+`;
+
+const getProjects = async () => {
+  const { allProjects } = await performRequest<{
+    allProjects: Project[];
+  }>({
+    query: PROJECTS_QUERY,
+    variables: {},
+  });
+  return allProjects;
+};
+
+const Projects = async () => {
+  const projects = await getProjects();
 
   return (
     <section className={styles.container}>
