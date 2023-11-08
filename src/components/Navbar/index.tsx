@@ -33,6 +33,8 @@ const VerticalBar = ({ current, n }: { n: number; current: number }) => {
   );
 };
 
+const ratios = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => n / 10);
+
 export default function Navbar() {
   //anchor refs
   const homeRef = useRef<HTMLAnchorElement>(null);
@@ -50,15 +52,20 @@ export default function Navbar() {
   } as const;
 
   function changeNav(entries: IntersectionObserverEntry[]) {
+    const viewport50percent = window.innerHeight * 0.5;
+
     entries.forEach((entry) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+      const id = entry.target.getAttribute("id") as PageSection;
+
+      if (
+        entry.isIntersecting &&
+        entry.intersectionRect.height > viewport50percent
+      ) {
         Object.values(refById).forEach((anchorRef) => {
           if (anchorRef.current) {
             anchorRef.current.classList.remove(styles.active);
           }
         });
-
-        const id = entry.target.getAttribute("id") as PageSection;
 
         setCurrentSection(id);
 
@@ -68,7 +75,9 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(changeNav, { threshold: 0.5 });
+    const observer = new IntersectionObserver(changeNav, {
+      threshold: ratios,
+    });
 
     const sectionsToObserve = [
       PageSection.HOME,
