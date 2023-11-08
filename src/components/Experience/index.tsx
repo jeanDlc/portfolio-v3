@@ -10,7 +10,7 @@ import { parseDates } from "@/utils/dates";
 
 const JOBS_QUERY = `
 	query {
-		allJobs (first : 3, orderBy : from_ASC ) {
+		allJobs (first : 3, orderBy : from_DESC ) {
 			id
 			role
 			company
