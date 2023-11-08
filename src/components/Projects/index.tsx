@@ -10,7 +10,7 @@ import { performRequest } from "@/lib/cms";
 
 const PROJECTS_QUERY = `
 	query {
-		allProjects (first : 5 ) {
+		allProjects (first : 4 ) {
 			id
 			name
 			image{
@@ -34,7 +34,6 @@ const getProjects = async () => {
     allProjects: Project[];
   }>({
     query: PROJECTS_QUERY,
-    variables: {},
   });
   return allProjects;
 };
