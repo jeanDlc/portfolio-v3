@@ -5,6 +5,13 @@
   padding: 0;
   margin: 0;
   font-size: 18px;
+  ::selection{
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-color: $color-stack;
+    color: $color-bg-secondary;
+  }
 }
 
 :root{
