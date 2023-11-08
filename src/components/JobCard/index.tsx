@@ -9,28 +9,28 @@ import UpRightArrowIcon from "@/components/icons/up-right-arrow";
 export default function JobCard({ job }: { job: Job }) {
   const { company, description, role, stack, url } = job;
   return (
-    <article className={styles.container}>
-      <div className={styles.card}>
-        <a
-          className={styles["heading-wrapper"]}
-          href={url}
-          target="_blank"
-          rel="noreferrer nofollow"
-        >
+    <article>
+      <a
+        className={styles.container}
+        href={url}
+        target="_blank"
+        rel="noreferrer nofollow"
+      >
+        <div className={styles.card}>
           <h3 className={`${styles.heading} ${sora.className}`}> {company} </h3>
-          <span aria-hidden>
+          <span className={styles.redirect} aria-hidden>
             <UpRightArrowIcon />
           </span>
-        </a>
 
-        <p className={styles.role}> {role} </p>
-        <p className={styles.description}> {description} </p>
-        <ul className={styles.stack}>
-          {stack.map((tech) => (
-            <li key={tech}> {tech} </li>
-          ))}
-        </ul>
-      </div>
+          <p className={styles.role}> {role} </p>
+          <p className={styles.description}> {description} </p>
+          <ul className={styles.stack}>
+            {stack.map((tech) => (
+              <li key={tech}> {tech} </li>
+            ))}
+          </ul>
+        </div>
+      </a>
     </article>
   );
 }
