@@ -30,17 +30,19 @@ export default function ProjectCard({ project }: { project: Project }) {
         >
           <span>
             <ClipIcon />
-            Demo
+            <p>Demo</p>
           </span>
         </a>
-        <a
-          href={repository}
-          rel="noreferrer nofollow"
-          target="_blank"
-          title={`Visit repository of ${name}`}
-        >
-          <Image loading="lazy" alt="Repository" src={githubSvg} />
-        </a>
+        {repository && (
+          <a
+            href={repository}
+            rel="noreferrer nofollow"
+            target="_blank"
+            title={`Visit repository of ${name}`}
+          >
+            <Image loading="lazy" alt="Repository" src={githubSvg} />
+          </a>
+        )}
       </footer>
     </article>
   );
