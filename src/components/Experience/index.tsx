@@ -10,7 +10,7 @@ import { parseDates } from "@/utils/dates";
 
 const JOBS_QUERY = `
 	query {
-		allJobs (first : 3 ) {
+		allJobs (first : 3, orderBy : from_ASC ) {
 			id
 			role
 			company
@@ -29,7 +29,6 @@ const getJobs = async () => {
     allJobs: Job[];
   }>({
     query: JOBS_QUERY,
-    variables: {},
   });
   return allJobs;
 };
@@ -57,7 +56,7 @@ const Experience = async () => {
           </li>
         ))}
       </ul>
-      <div className={styles["ornament-end"]}>
+      <div className={styles["ornament-end"]} aria-hidden>
         <div>
           <OrnamentIcon vertical />
         </div>

@@ -5,7 +5,7 @@ export async function performRequest<T>({
   revalidate,
 }: {
   query: string;
-  variables: any;
+  variables?: any;
   includeDrafts?: boolean;
   revalidate?: number;
 }) {
