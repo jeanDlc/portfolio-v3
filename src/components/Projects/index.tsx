@@ -1,13 +1,11 @@
-import ProjectCard from "@/components/ProjectCard";
-import { baiJamjuree } from "@/fonts";
 import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import { baiJamjuree, sora } from "@/fonts";
+import { performRequest } from "@/lib/cms";
+import RightArrow from "@/components/icons/right-arrow";
 import styles from "./styles.module.scss";
 
-import arrowDownSvg from "@/assets/arrow-down.svg";
-
 import type { Project } from "@/types";
-import Image from "next/image";
-import { performRequest } from "@/lib/cms";
 
 const PROJECTS_QUERY = `
 	query {
@@ -55,8 +53,8 @@ const Projects = async () => {
         ))}
       </ul>
       <Link href={"/projects/all"} className={styles.more}>
-        See More
-        <Image src={arrowDownSvg} alt="Expand" loading="lazy" />
+        <p className={sora.className}>View all projects</p>
+        <RightArrow />
       </Link>
     </section>
   );

@@ -1,8 +1,9 @@
-@import '../../sass/colors';
-@import '../../sass/mixins';
+@import '@/sass/colors';
+@import '@/sass/mixins';
 
 .container{
     container: projects-container / inline-size;
+    margin-bottom: min(12vh, 100px);
 }
 
 .title{
@@ -29,16 +30,45 @@
 }
 
 .more{
-    background-color: $color-secondary-button;
-    color: white;
-    font-weight: normal;
-    border-radius: 12px;
-    font-size: 14px;
-    padding: 9px;
-    display: flex;
-    gap: 5px;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
-    width: min(159px, 100%);
+    gap: 5px;
+    p{
+        text-transform: capitalize;
+        font-weight: 500;
+        transition: all .2s ease-in-out;
+
+        position: relative;
+        &::after{
+            @include basePseudo();
+            $height:2px;
+            transition: all .2s ease-in-out;
+            width: 100%;
+            height: $height;
+            background: $gradient;
+            bottom: - calc($height + 2px);
+            left: 0;
+            opacity: 0;
+        }
+    }
+    svg{
+        height: 18px;
+        width: 18px;
+        transition: transform .2s ease-in-out;
+        path{
+            stroke: white;
+        }
+
+    }
+    &:hover{
+        svg{
+            transform: translate(7px);
+        }
+        p{
+            border-image-source: $gradient;
+            &::after{
+                opacity: 1;
+            }
+        }
+    }
 }
