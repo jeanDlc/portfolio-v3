@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { poppins } from "@/fonts";
 
 import "./globals.scss";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "jeanDLC portfolio",
@@ -17,7 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <div className="layout">
+          <CustomCursor />
+          <div className="container">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }

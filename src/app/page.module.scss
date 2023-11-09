@@ -1,11 +1,6 @@
 @import '../sass/colors';
 @import '../sass/mixins.scss';
 
-.wrapper{
-  background-color: $color-bg-primary;
-  position: relative;
-}
-
 .container{
   max-width: 1440px;
   margin: 0 auto;

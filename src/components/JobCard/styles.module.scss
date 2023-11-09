@@ -8,10 +8,18 @@
         position: absolute;
         margin-left: 5px;
         transition: transform .2s ease-in-out;
+        svg{
+            width: 15px;
+            height: 15px;
+            path{
+                stroke: #13ADC7;
+            }
+        }
     }
-    &:hover .redirect{
-        transform: translate(5px, -5px);
-
+    &:hover{
+        .redirect{
+            transform: translate(5px, -5px);
+        }
     }
 }
 

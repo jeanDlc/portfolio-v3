@@ -44,3 +44,13 @@ button{
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+.layout{
+  background-color: $color-bg-primary;
+  position: relative;
+}
+.container{
+  max-width: 1440px;
+  margin: 0 auto;
+  
+}

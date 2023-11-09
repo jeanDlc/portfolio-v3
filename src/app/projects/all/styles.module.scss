@@ -1,0 +1,160 @@
+@import "@/sass/colors";
+@import "@/sass/mixins";
+
+.main{
+    padding-top: clamp(20px,10vh ,100px);
+    padding-bottom: 10vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: 100vh;
+    h1{
+        font-size: clamp(20px, 3vw, 50px);
+        margin: 15px 0px;
+        span{
+            font-size: inherit;
+            @include text-gradient;
+        }
+    }
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    thead{
+        tr{
+            th{
+                font-weight: 500;
+                font-size: 16px;
+            }
+        }
+    }
+    th, td{
+        text-align: start;
+        padding: 1rem;
+    }
+    th::first-letter{
+        text-transform: uppercase;
+    }
+    td{
+        color: $color-secondary;
+        font-size: 16px;
+        &  * {
+            font-size: inherit;
+        }
+    }
+    tr{
+        border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.2);
+        margin: 0;
+        border-collapse: collapse;
+    }
+    
+    a{
+        transition: color .3s ease-out;
+        padding: 10px;
+    }
+    a:hover{
+        color: $color-stack;
+
+    }
+ 
+}
+
+.project-name{
+    color: white;
+}
+
+.stack-list{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    .stack{
+        border-radius: 1000px;    
+        background: $gradient;
+        padding: 1px;
+        display: inline-block;
+        span{
+            padding: 4px 12px;
+            display: inline-block;
+            border-radius: inherit;              
+            background-color: $color-bg-primary;                
+        }
+    }
+}
+
+.tableContainer{
+
+    container-type: inline-size;
+    @container(width>=500px){
+        .only-mobile {
+            display:none;
+
+        }
+    }
+    @container(width<500px){
+        .lg, .md {
+            display:none;
+
+        }
+    } 
+    @container(width<1000px){
+        .lg {
+            display:none;
+
+        }
+    }  
+}
+
+.links{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-transform: lowercase;
+
+    
+    
+}
+.back{
+    color: $color-stack;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    svg{
+        transition: transform .2s ease-out;
+        width: 15px;
+        height: 15px;
+        transform: rotate(180deg);
+    }
+    &:hover{
+        svg{
+            transform: rotate(180deg) translate(8px);
+        }
+    }
+}
+
+.demo{
+    svg{
+        margin-left: 2px;
+        transition: transform .2s ease-in-out;
+        height: 15px;
+        width: 15px;
+    }
+    svg{
+        path{
+            stroke: $color-secondary;
+        }
+    }
+    &:hover {
+        svg{
+            transform: translate(5px, -5px);
+            path{
+                stroke: $color-stack;
+            }
+        }
+    }
+}
+
+.github{
+    &:hover{
+        transition: transform .2s ease-in-out;
+        transform: scale(1.2);
+    }
+}

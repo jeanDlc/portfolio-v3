@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/ProjectCard";
 import { baiJamjuree } from "@/fonts";
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 import arrowDownSvg from "@/assets/arrow-down.svg";
@@ -53,10 +54,10 @@ const Projects = async () => {
           </li>
         ))}
       </ul>
-      <button className={styles.more}>
+      <Link href={"/projects/all"} className={styles.more}>
         See More
         <Image src={arrowDownSvg} alt="Expand" loading="lazy" />
-      </button>
+      </Link>
     </section>
   );
 };
