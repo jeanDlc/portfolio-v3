@@ -1,5 +1,5 @@
-@import '../../sass/colors';
-@import '../../sass/mixins.scss';
+@import '@/sass/colors';
+@import '@/sass/mixins';
 
 
 
@@ -116,13 +116,9 @@
 }
 
 .button-container{
-    position: absolute;
-    bottom: 30px;
-    right: 10px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
     @include hide-on-desktop;
-
-    button {
-        @include button-primary
-    }
 }
 

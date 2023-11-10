@@ -4,6 +4,7 @@ import ContactList from "@/components/contactList";
 import { baiJamjuree } from "@/fonts";
 import LocationIcon from "@/components/icons/location";
 import PeruFlagIcon from "@/components/icons/peruFlag";
+import CvButton from "@/components/CvButton";
 
 import styles from "./styles.module.scss";
 
@@ -29,7 +30,7 @@ const Sidebar = () => {
       </p>
       <section className={styles.actions}>
         <ContactList />
-        <button className={styles.download}>Download CV</button>
+        <CvButton />
       </section>
 
       <Navbar />

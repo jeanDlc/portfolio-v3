@@ -52,6 +52,7 @@
 .actions {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 50px;
     // TODO change media query for container queries
@@ -63,8 +64,4 @@
             margin-left: auto;
         }
     }
-}
-
-.download{
-    @include button-primary;
 }

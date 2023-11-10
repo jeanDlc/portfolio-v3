@@ -1,10 +1,11 @@
+import { baiJamjuree, sora } from "@/fonts";
 import PeruFlagIcon from "@/components/icons/peruFlag";
 import LocationIcon from "@/components/icons/location";
 import Logo from "@/components/Logo";
-import { baiJamjuree, sora } from "@/fonts";
+import ContactList from "@/components/contactList";
+import CvButton from "@/components/CvButton";
 
 import styles from "./styles.module.scss";
-import ContactList from "@/components/contactList";
 
 const Hero = () => {
   return (
@@ -52,7 +53,7 @@ const Hero = () => {
         </section>
       </div>
       <div className={styles["button-container"]}>
-        <button>Download CV</button>
+        <CvButton />
       </div>
     </>
   );
