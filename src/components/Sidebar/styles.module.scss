@@ -1,5 +1,5 @@
-@import '../../sass/colors';
-@import '../../sass/mixins';
+@import '@/sass/colors';
+@import '@/sass/mixins';
 
 .container{
     padding-top: clamp(50px, 10vh, 140px);
