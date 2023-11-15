@@ -4,10 +4,35 @@ import LocationIcon from "@/components/icons/location";
 import Logo from "@/components/Logo";
 import ContactList from "@/components/contactList";
 import CvButton from "@/components/CvButton";
-
+import { performRequest } from "@/lib/cms";
 import styles from "./styles.module.scss";
 
-const Hero = () => {
+import type { About } from "@/types";
+
+const ABOUT_QUERY = `
+	query {
+		aboutMe {
+			languages
+      role
+      introduction
+      skills
+		}
+	}
+
+`;
+
+const getAboutData = async () => {
+  const { aboutMe } = await performRequest<{
+    aboutMe: Pick<About, "languages" | "role" | "introduction" | "skills">;
+  }>({
+    query: ABOUT_QUERY,
+  });
+  return aboutMe;
+};
+
+const Hero = async () => {
+  const { introduction, languages, role, skills } = await getAboutData();
+
   return (
     <>
       <div className={styles.container}>
@@ -24,25 +49,15 @@ const Hero = () => {
                   <p>Perú</p>
                 </li>
                 <span>{"/"}</span>
-                <li> {`Spanish - English`} </li>
+                <li> {languages.join(" - ")} </li>
               </ul>
             </header>
-            <h2 className={baiJamjuree.className}>Frontend developer</h2>
-            <p className={styles.desc}>
-              I am a frontend developer Since beginning my journey as developer
-              , I have done many web projects, and I proud of my progress
-            </p>
+            <h2 className={baiJamjuree.className}> {role} </h2>
+            <p className={styles.desc}>{introduction}</p>
             <ul className={styles.stack}>
-              {[
-                "JavaScript",
-                "CSS",
-                "HTML",
-                "React Js",
-                "Bootstrap",
-                "Material UI",
-              ].map((stack) => (
-                <li className={sora.className} key={stack}>
-                  <span>{stack}</span>
+              {skills.map((tech) => (
+                <li className={sora.className} key={tech}>
+                  <span>{tech}</span>
                 </li>
               ))}
             </ul>

@@ -20,3 +20,15 @@ export interface Project {
   id: string;
   company?: string;
 }
+
+export interface About {
+  skills: string[];
+  introduction: string;
+  role: string;
+  languages: string[];
+  contact: {
+    github: string;
+    gmail: string;
+    linkedin: string;
+  };
+}
