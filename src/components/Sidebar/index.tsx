@@ -1,33 +1,38 @@
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import ContactList from "@/components/contactList";
-import { baiJamjuree } from "@/fonts";
-import LocationIcon from "@/components/icons/location";
-import PeruFlagIcon from "@/components/icons/peruFlag";
 import CvButton from "@/components/CvButton";
+import { performRequest } from "@/lib/cms";
 
 import styles from "./styles.module.scss";
 
-const Sidebar = () => {
+import type { About } from "@/types";
+
+const INTRODUCTION_QUERY = `
+	query {
+		aboutMe {
+			introduction
+		}
+	}
+
+`;
+
+const getSidebarIntroductoryData = async () => {
+  const { aboutMe: data } = await performRequest<{
+    aboutMe: Pick<About, "introduction">;
+  }>({
+    query: INTRODUCTION_QUERY,
+  });
+  return data;
+};
+
+const Sidebar = async () => {
+  const { introduction } = await getSidebarIntroductoryData();
+
   return (
     <header className={styles.container}>
       <Logo />
-      <div className={styles.info}>
-        <ul className={styles.aditional}>
-          <li className={styles.location}>
-            <LocationIcon />
-            <PeruFlagIcon />
-            <p>Perú</p>
-          </li>
-          <span>{"/"}</span>
-          <li> {`Spanish - English`} </li>
-        </ul>
-        <h2 className={baiJamjuree.className}>Frontend developer</h2>
-      </div>
-      <p className={styles.description}>
-        I am a frontend developer Since beginning my journey as developer , I
-        have done many web projects, and I proud of my progress
-      </p>
+      <p className={styles.description}>{introduction}</p>
       <section className={styles.actions}>
         <ContactList />
         <CvButton />

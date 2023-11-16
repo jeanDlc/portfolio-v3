@@ -23,6 +23,8 @@ export interface Project {
 
 export interface About {
   skills: string[];
+  name: string;
+  lastname: string;
   introduction: string;
   role: string;
   languages: string[];

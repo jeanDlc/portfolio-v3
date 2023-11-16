@@ -12,24 +12,6 @@
         font-size: 30px;
         margin-bottom: 10px;
     }
-    .info{
-        display: none;
-    }
-    .aditional{
-        list-style: none;
-        display: flex;
-        align-items: center;
-        $gap: 6px;
-        gap: $gap;
-        .location{
-            display: flex;
-            align-items: center;
-            gap: $gap;
-        }
-        li{
-            font-size: 14px;
-        }
-    }
     @media (width<768px){
         background-color: $color-bg-secondary;
         padding-left: 20px;
