@@ -1,14 +1,12 @@
-import Link from "next/link";
-
 import { performRequest } from "@/lib/cms";
 import { baiJamjuree } from "@/fonts";
+import GithubIcon from "@/components/icons/github";
+import UpRightArrowIcon from "@/components/icons/up-right-arrow";
+import HorizontalLink from "@/components/HorizontalLink";
 
 import styles from "./styles.module.scss";
 
 import type { Project } from "@/types";
-import GithubIcon from "@/components/icons/github";
-import UpRightArrowIcon from "@/components/icons/up-right-arrow";
-import RightArrow from "@/components/icons/right-arrow";
 
 const ALL_PROJECTS_QUERY = `
 	query {
@@ -43,10 +41,7 @@ export default async function AllProjectsPage() {
   return (
     <div>
       <main className={styles.main}>
-        <Link href={"/"} className={styles.back}>
-          <RightArrow />
-          jeanDLC
-        </Link>
+        <HorizontalLink direction="back" route="/" text="jeanDLC" />
         <h1 className={`${styles.title} ${baiJamjuree.className}`}>
           My <span>projects</span>{" "}
         </h1>

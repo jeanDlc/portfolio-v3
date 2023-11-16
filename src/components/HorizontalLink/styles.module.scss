@@ -1,0 +1,48 @@
+@import '@/sass/mixins';
+@import '@/sass/colors';
+
+.link{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    svg{
+        transition: transform .2s ease-out;
+        width: 15px;
+        height: 15px;
+    }
+
+    .back svg{
+        transform: rotate(180deg);
+    }
+
+    p{
+        position: relative;
+        font-weight: 500;
+        &::after{
+            @include basePseudo();
+            $height:2px;
+            transition: all .2s ease-in-out;
+            width: 100%;
+            height: $height;
+            background: $gradient;
+            bottom: - calc($height + 2px);
+            left: 0;
+            opacity: 0;
+        }
+    }
+
+    &:hover{
+        .back svg{
+            transform: rotate(180deg) translate(8px);
+        }
+        .forth svg{
+            transform: translate(8px);
+        }
+        p{
+            &::after{
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -1,8 +1,8 @@
-import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import { baiJamjuree, sora } from "@/fonts";
+import { baiJamjuree } from "@/fonts";
 import { performRequest } from "@/lib/cms";
-import RightArrow from "@/components/icons/right-arrow";
+import HorizontalLink from "@/components/HorizontalLink";
+
 import styles from "./styles.module.scss";
 
 import type { Project } from "@/types";
@@ -52,10 +52,11 @@ const Projects = async () => {
           </li>
         ))}
       </ul>
-      <Link href={"/projects/all"} className={styles.more}>
-        <p className={sora.className}>View all projects</p>
-        <RightArrow />
-      </Link>
+      <HorizontalLink
+        direction="forth"
+        route="/projects/all"
+        text="View All Projects"
+      />
     </section>
   );
 };

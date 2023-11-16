@@ -112,23 +112,7 @@
     
     
 }
-.back{
-    color: $color-stack;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    svg{
-        transition: transform .2s ease-out;
-        width: 15px;
-        height: 15px;
-        transform: rotate(180deg);
-    }
-    &:hover{
-        svg{
-            transform: rotate(180deg) translate(8px);
-        }
-    }
-}
+
 
 .demo{
     svg{
