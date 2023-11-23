@@ -6,6 +6,23 @@
     container: article-container / inline-size;
 }
 
+.action{
+    display: inline-block;
+    .redirect{
+        margin-left: 2.5px;
+        svg{
+            transition: transform .2s ease-out;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    &:hover{
+        .redirect svg{
+            transform: translate(5px, -5px);
+        }
+    }
+}
+
 .cover{
     margin-bottom: 26px;
     position: relative;
@@ -56,7 +73,7 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     @include onMobile(){
         margin-bottom: 18px;
@@ -84,6 +101,17 @@
     display: flex;
     align-items: center;
     gap: 24px;
+    > a{
+        transition: all .1s ease-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+        &:last-of-type{
+            &:hover{
+                transform: scale(1.15);
+            }
+        }
+    }
 }
 
 .demo-button{
