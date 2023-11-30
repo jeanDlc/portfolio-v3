@@ -4,4 +4,10 @@
     @media (width<768px){
         gap: 30px;
     }
+    a{
+        transition: all .15s ease-out;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
 }

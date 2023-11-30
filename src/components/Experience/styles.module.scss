@@ -137,6 +137,16 @@ $separation-between-cards:54px;
     position: relative; 
 }
 
+@keyframes move{
+    from{
+        transform: translateY(-8px);
+
+    }
+    to{
+        transform: translateY(8px);
+    }
+}
+
 .ornament-end{
     $pill-h:126px;
     $external-padding: 18px;
@@ -144,5 +154,6 @@ $separation-between-cards:54px;
     @include basePseudo();
     z-index: 0;
     bottom: - calc($pill-h/2 + $external-padding + $separation);
+    animation: 3s infinite alternate move;
     right: 0;
 }
