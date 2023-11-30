@@ -16,25 +16,33 @@
             height: 20px;
         }
     }
+
+    $image-border-color: #133E74;
+    
+    .cover{
+        transition: border .2s ease-out;
+        margin-bottom: 26px;
+        position: relative;
+        width: 100%;
+        height: 237px;
+        border: 1px solid $image-border-color;
+        border-radius: 18px;
+        overflow: hidden;
+        img{
+            object-fit: cover;
+        }
+    }
     &:hover{
         .redirect svg{
             transform: translate(5px, -5px);
         }
+        .cover{
+            border-color: lighten($color: $image-border-color, $amount: 10);
+        }
     }
 }
 
-.cover{
-    margin-bottom: 26px;
-    position: relative;
-    width: 100%;
-    height: 237px;
-    border: 1px solid #133E74;
-    border-radius: 18px;
-    overflow: hidden;
-    img{
-        object-fit: cover;
-    }
-}
+
 
 .title{
     font-weight: 300;
